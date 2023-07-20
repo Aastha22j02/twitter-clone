@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% block sidebar %}
+{% endblock sidebar%}
+{% block title %}
+  About
+{% endblock title %}
+<div class="flex flex-wrap">
+  <div class="w-full">
+    <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-800">
+      <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+        <div class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
+          <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="{% url "home" %}">
+            Tweet Kar
+          </a>
+          <button class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="lg:flex lg:flex-grow items-center hidden" id="example-collapse-navbar">
+          <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+            <li class="nav-item">
+              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="{% url "about" %}">
+                About
+              </a>
+            </li>
+            <li class="nav-item">
+              <div class="flex flex-wrap">
+                <div class="w-full sm:w-6/12 md:w-4/12 px-4">
+                  <div class="relative inline-flex align-middle w-full">
+                    <button class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" type="button" onclick="openDropdown(event,'dropdown-id')">
+                      Settings
+                    </button>
+                    <div class="hidden bg-white  text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width:12rem" id="dropdown-id">
+                      <a href="{% url "edit_profile" %}" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                        Edit Profile
+                      </a>
+                      <a href="{% url "account_email" %}" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                        Email
+                      </a>
+                      <a href="{% url "account_change_password" %}" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                        Change Password 
+                      </a>
+                      <a href="{% url "account_logout" %}" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                        Logout
+                      </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+{% block content %}
+
+  <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-600 sm:px-6 lg:px-8">
+    <div class="px-8 py-12 bg-white shadow sm:rounded-lg sm:px-10">
+      <p class="text-2xl font-light leading-relaxed mt-6 ml-4 mb-4 text-gray-800">
+      A twitter clone site which mimic it's core functionality. Developed By OS3 INFOTECH PVT LTD.
+      </p>
+
+
+
+<div class="flex flex-wrap" id="tabs-id">
+  <div class="w-full">
+    <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+      <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-gray-200 bg-gray-600" onclick="changeAtiveTab(event,'tab-profile')">
+          <i class="fab fa-linkedin text-xl"></i> Linkedin
+        </a>
+      </li>
+      <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-gray-200 bg-gray-600" onclick="changeAtiveTab(event,'tab-settings')">
+          <i class="fas fa-at text-xl"></i> Email
+        </a>
+      </li>
+      <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-gray-200 bg-gray-600" onclick="changeAtiveTab(event,'tab-options')">
+          <i class="fas fa-globe text-xl"></i> Website
+        </a>
+      </li>
+    </ul>
+    <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+      <div class="px-4 py-5 flex-auto">
+        <div class="tab-content tab-space">
+          <div class="block" id="tab-profile">
+            <p class="text-xl font-light leading-relaxed mt-6 mb-4 text-gray-800">OS3 INFOTECH PVT LTD @ 
+              <span class="text-lg font-semibold inline-block py-1 px-2 rounded text-blue-500 bg-pink-200 uppercase last:mr-0 mr-1">
+              <a target="_blank" href="https://www.linkedin.com/company/os3-infotech-pvt-ltd-/">
+                Linkedin
+              </a>
+            </span>
+            </p>
+          </div>
+          <div class="hidden" id="tab-settings">
+            <p class="text-xl font-light leading-relaxed mt-6 mb-4 text-gray-800">Our Email: 
+              <span class="text-lg font-semibold inline-block py-1 px-2 rounded text-blue-500 bg-pink-200 uppercase last:mr-0 mr-1">
+                info@os3infotech.com
+            </span>
+            </p>
+          </div>
+          <div class="hidden" id="tab-options">
+            <p class="text-xl font-light leading-relaxed mt-6 mb-4 text-gray-800">OS3 INFOTECH PVT LTD 
+              <span class="text-lg font-semibold inline-block py-1 px-2 rounded text-blue-500 bg-pink-200 uppercase last:mr-0 mr-1">
+              <a target="_blank" href="https://os3infotech.com/www/">
+                WEBSITE
+              </a>
+            </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+  function changeAtiveTab(event,tabID){
+    let element = event.target;
+    while(element.nodeName !== "A"){
+      element = element.parentNode;
+    }
+    ulElement = element.parentNode.parentNode;
+    aElements = ulElement.querySelectorAll("li > a");
+    tabContents = document.getElementById("tabs-id").querySelectorAll(".tab-content > div");
+    for(let i = 0 ; i < aElements.length; i++){
+      aElements[i].classList.remove("text-gray-200");
+      aElements[i].classList.remove("bg-gray-600");
+      aElements[i].classList.add("text-gray-200");
+      aElements[i].classList.add("bg-gray-600");
+      tabContents[i].classList.add("hidden");
+      tabContents[i].classList.remove("block");
+    }
+    element.classList.remove("text-gray-200");
+    element.classList.remove("bg-gray-600");
+    element.classList.add("text-gray-200");
+    element.classList.add("bg-gray-600");
+    document.getElementById(tabID).classList.remove("hidden");
+    document.getElementById(tabID).classList.add("block");
+  }
+  </script>
+
+{% endblock content %}
